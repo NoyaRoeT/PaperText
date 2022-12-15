@@ -1,12 +1,13 @@
 import Head from "next/head";
+import NavBar from "../components/Navbar";
 
 export default function Home() {
-	return (
-		<>
-			<Head></Head>
-			<div>
-				<h1 className="text-blue-500">Hello World!</h1>
-			</div>
-		</>
-	);
+    return (
+        <>
+            <Head></Head>
+            <div>
+                <NavBar />
+            </div>
+        </>
+    );
 }

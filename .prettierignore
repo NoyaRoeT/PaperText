@@ -3,7 +3,8 @@ build
 coverage
 .next
 .git
-nodew_modules
+node_modules
+.package-lock
 
 # Ignore all HTML files:
 *.html
