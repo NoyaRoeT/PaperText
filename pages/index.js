@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Carousel from "../components/Carousel";
 import NavBar from "../components/Navbar";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
             <Head></Head>
             <div>
                 <NavBar />
+                <Carousel />
             </div>
         </>
     );
