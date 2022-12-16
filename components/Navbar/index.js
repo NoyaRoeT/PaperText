@@ -1,9 +1,15 @@
+import Link from "next/link";
+
 const NavBar = () => {
     return (
         <div className="navbar bg-base-100 justify-between content-center">
             <div className="flex">
-                <a className="btn btn-ghost normal-case text-xl">PaperText</a>
-                <a className="btn">Browse</a>
+                <Link href="/" className="btn btn-ghost normal-case text-xl">
+                    PaperText
+                </Link>
+                <Link href="/browse" className="btn">
+                    Browse
+                </Link>
             </div>
             <div>
                 <input
