@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Carousel from "../components/Carousel/Carousel";
-import Tabs from "../components/Tabs/Tabs";
+import Carousel from "../components/Carousel";
+import Tabs from "../components/Tabs";
 
 export default function Home() {
     return (
@@ -10,7 +10,7 @@ export default function Home() {
             </Head>
             <main>
                 <Carousel />
-                <Tabs></Tabs>
+                <Tabs />
             </main>
         </>
     );
