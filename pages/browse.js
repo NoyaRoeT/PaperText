@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Navbar from "../components/Navbar/Navbar";
 import AdvancedSearch from "../components/AdvancedSearch/AdvancedSearch";
 import BooksTable from "../components/BooksTable/BooksTable";
 import DUMMY_BOOKS from "../dummy_data/dummy_books";
