@@ -5,7 +5,7 @@ const Carousel = (props) => {
             <div id="slide1" className="carousel-item relative w-full">
                 <Image
                     className="mx-auto"
-                    src="/test_img1.webp"
+                    src="/test_img0.webp"
                     width={500}
                     height={250}
                 ></Image>
@@ -53,7 +53,7 @@ const Carousel = (props) => {
             <div id="slide4" className="carousel-item relative w-full">
                 <Image
                     className="mx-auto"
-                    src="/test_img1.webp"
+                    src="/test_img0.webp"
                     width={500}
                     height={250}
                 ></Image>
