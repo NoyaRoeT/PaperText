@@ -9,7 +9,7 @@ const AdvancedSearch = () => {
                     <option>Han Solo</option>
                     <option>Greedo</option>
                 </select>
-                <select className="select select-bordered w-full max-w-xs">
+                <select lassName="select select-bordered w-full max-w-xs">
                     <option disabled selected>
                         Tags...
                     </option>
