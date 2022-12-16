@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Carousel from "../components/Carousel";
 import NavBar from "../components/Navbar";
+import Tabs from "../components/Tabs";
 
 export default function Home() {
     return (
@@ -8,10 +9,11 @@ export default function Home() {
             <Head>
                 <title>PaperText | Web Novels</title>
             </Head>
-            <div>
+            <main>
                 <NavBar />
                 <Carousel />
-            </div>
+                <Tabs />
+            </main>
         </>
     );
 }
