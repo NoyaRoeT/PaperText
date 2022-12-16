@@ -10,7 +10,6 @@ export default function Home() {
                 <title>PaperText | Web Novels</title>
             </Head>
             <main>
-                <NavBar />
                 <Carousel />
                 <Tabs />
             </main>
