@@ -10,7 +10,7 @@ const AuthorBooksTable = () => {
             imgUrl: "/test_img0.webp",
         },
         {
-            title: "Test Book",
+            title: "Fun story book",
             chapters: 333,
             words: 91293,
             views: 8111,
