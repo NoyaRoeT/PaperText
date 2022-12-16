@@ -19,7 +19,9 @@ const NavBar = () => {
                 />
             </div>
             <div className="flex space-x-4">
-                <button className="btn">Login</button>
+                <Link href="/login">
+                    <button className="btn">Login</button>
+                </Link>
                 <button className="btn">Sign Up</button>
             </div>
         </div>
