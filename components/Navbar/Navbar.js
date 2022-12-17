@@ -7,7 +7,7 @@ const NavBar = () => {
                 <Link href="/" className="btn btn-ghost normal-case text-xl">
                     PaperText
                 </Link>
-                <Link href="/browse" className="btn">
+                <Link href="/books" className="btn">
                     Browse
                 </Link>
             </div>
