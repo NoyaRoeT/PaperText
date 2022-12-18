@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const AuthorChapterTable = () => {
     const testData = [
         {
@@ -33,8 +35,17 @@ const AuthorChapterTable = () => {
     ];
 
     return (
-        <div className="overflow-x-auto w-full">
-            <button className="btn">Create</button>
+        <div className="overflow-x-auto w-full my-2">
+            <div className="flex w-full justify-between">
+                <input
+                    type="text"
+                    placeholder="Search"
+                    className="input input-bordered w-full max-w-xs"
+                />
+                <button type="button" className="btn">
+                    Create
+                </button>
+            </div>
             <table className="table w-full mt-2">
                 <thead>
                     <tr>
@@ -62,9 +73,15 @@ const AuthorChapterTable = () => {
                                 <td>{book.words}</td>
                                 <td>{book.views}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-md">
-                                        View
-                                    </button>
+                                    <Link
+                                        href={`/author/books/1/${book.number}`}
+                                    >
+                                        {" "}
+                                        {/* todo: get current book id/slug */}
+                                        <button className="btn btn-ghost btn-md">
+                                            Edit
+                                        </button>
+                                    </Link>
                                 </th>
                             </tr>
                         );

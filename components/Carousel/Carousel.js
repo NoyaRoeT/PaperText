@@ -3,7 +3,7 @@ import Image from "next/image";
 const dummyData = [
     {
         image: "/test_img0.webp",
-        title: "",
+        title: "Chainsaw Man",
         description: `"Denji is robbed of a normal teenage life, left with
                         nothing but his deadbeat father's overwhelming debt. His
                         only companion is his pet, the chainsaw devil Pochita,
@@ -17,7 +17,7 @@ const dummyData = [
     },
     {
         image: "/test_img0.webp",
-        title: "",
+        title: "Chainsaw Man",
         description: `"Denji is robbed of a normal teenage life, left with
                         nothing but his deadbeat father's overwhelming debt. His
                         only companion is his pet, the chainsaw devil Pochita,
@@ -31,7 +31,7 @@ const dummyData = [
     },
     {
         image: "/test_img0.webp",
-        title: "",
+        title: "Chainsaw Man",
         description: `"Denji is robbed of a normal teenage life, left with
                         nothing but his deadbeat father's overwhelming debt. His
                         only companion is his pet, the chainsaw devil Pochita,
@@ -45,7 +45,7 @@ const dummyData = [
     },
     {
         image: "/test_img0.webp",
-        title: "",
+        title: "Chainsaw Man",
         description: `"Denji is robbed of a normal teenage life, left with
                         nothing but his deadbeat father's overwhelming debt. His
                         only companion is his pet, the chainsaw devil Pochita,
@@ -89,7 +89,7 @@ const Carousel = () => {
                         ></Image>
 
                         <div className="p-4">
-                            <h2 className="text-5xl mb-4">{dummyData.title}</h2>
+                            <h2 className="text-5xl mb-4">{item.title}</h2>
                             <p>{item.description}</p>
                         </div>
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

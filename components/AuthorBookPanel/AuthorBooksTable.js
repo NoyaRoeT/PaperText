@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const AuthorBooksTable = () => {
     const testData = [
@@ -8,6 +9,7 @@ const AuthorBooksTable = () => {
             words: 91293,
             views: 8111,
             imgUrl: "/test_img0.webp",
+            id: 1,
         },
         {
             title: "Fun story book",
@@ -15,6 +17,7 @@ const AuthorBooksTable = () => {
             words: 91293,
             views: 8111,
             imgUrl: "/test_img0.webp",
+            id: 1,
         },
         {
             title: "Test Book",
@@ -22,6 +25,7 @@ const AuthorBooksTable = () => {
             words: 91293,
             views: 8111,
             imgUrl: "/test_img0.webp",
+            id: 1,
         },
         {
             title: "Test Book",
@@ -29,6 +33,7 @@ const AuthorBooksTable = () => {
             words: 91293,
             views: 8111,
             imgUrl: "/test_img0.webp",
+            id: 1,
         },
     ];
 
@@ -72,9 +77,11 @@ const AuthorBooksTable = () => {
                                 <td>{book.words}</td>
                                 <td>{book.views}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-md">
-                                        Details
-                                    </button>
+                                    <Link href={`/author/books/${book.id}`}>
+                                        <button className="btn btn-ghost btn-md">
+                                            Details
+                                        </button>
+                                    </Link>
                                 </th>
                             </tr>
                         );
