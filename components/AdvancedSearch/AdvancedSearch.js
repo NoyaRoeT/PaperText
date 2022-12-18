@@ -1,6 +1,6 @@
 const AdvancedSearch = () => {
     return (
-        <div className="card bg-primary text-primary-content">
+        <div className="card bg-base-200 text-primary-content">
             <div className="card-body">
                 <select className="select select-bordered w-full max-w-xs">
                     <option disabled selected>

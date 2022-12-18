@@ -9,8 +9,10 @@ export default function Browse() {
             <Head>
                 <title>PaperText | Browse Novels</title>
             </Head>
-            <AdvancedSearch />
-            <BooksTable booksList={DUMMY_BOOKS}></BooksTable>
+            <main className="max-w-screen-xl mx-auto space-y-4 mt-10 mb-20">
+                <AdvancedSearch />
+                <BooksTable booksList={DUMMY_BOOKS}></BooksTable>
+            </main>
         </>
     );
 }

@@ -11,10 +11,10 @@ import Link from "next/link";
  */
 const BooksTableItem = ({ book }) => {
     return (
-        <div className="flex space-x-4 bg-base-200">
+        <div className="flex space-x-4 bg-base-200 p-4">
             <Image
                 src={book.img.url}
-                width={100}
+                width={150}
                 height={100}
                 alt={book.img.alt || `${book.title}'s image`}
             ></Image>

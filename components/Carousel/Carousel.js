@@ -1,7 +1,7 @@
 import Image from "next/image";
 const Carousel = (props) => {
     return (
-        <div className="carousel max-w-screen-xl mx-auto">
+        <div className="carousel bg-base-200">
             <div id="slide1" className="carousel-item relative w-full">
                 <Image
                     className="mx-auto"
