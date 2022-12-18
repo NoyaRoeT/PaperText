@@ -11,12 +11,13 @@ import Link from "next/link";
  */
 const BooksTableItem = ({ book }) => {
     return (
-        <div className="flex space-x-4 bg-base-200 p-4">
+        <div className="flex space-x-4 bg-base-200 p-4 rounded-md">
             <Image
                 src={book.img.url}
                 width={150}
                 height={100}
                 alt={book.img.alt || `${book.title}'s image`}
+                className="rounded-md"
             ></Image>
             <div className="flex flex-col content-between">
                 <Link

@@ -81,7 +81,7 @@ const Carousel = () => {
                         className="carousel-item relative w-full"
                     >
                         <Image
-                            className="mx-auto"
+                            className="rounded-md"
                             src={item.image}
                             width={500}
                             height={250}
