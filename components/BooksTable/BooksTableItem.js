@@ -1,11 +1,10 @@
-// Takes an object as input via book prop -> {title : string, genres : string array, imgUrl : string}
-
 import Image from "next/image";
-
+import Link from "next/link";
 /**
  *
  * @param {Object} prop
  * @param {Object} prop.book
+ * @param {string} prop.book.id
  * @param {string} prop.book.title
  * @param {string[]} prop.book.genres
  * @param {string} prop.book.imgUrl
@@ -17,10 +16,15 @@ const BooksTableItem = ({ book }) => {
                 src={book.img.url}
                 width={100}
                 height={100}
-                alt={book.img.alt || book.title}
+                alt={book.img.alt || `${book.title}'s image`}
             ></Image>
             <div className="flex flex-col content-between">
-                <div className="text-xl">{book.title}</div>
+                <Link
+                    href={`/books/${book.id}`}
+                    className="text-xl link link-hover"
+                >
+                    {book.title}
+                </Link>
                 <ul className="flex space-x-4">
                     {book.genres.map((genre) => (
                         <li key={genre} className="text-xs btn">

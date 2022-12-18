@@ -1,17 +1,16 @@
-const ChaptersTable = (props) => {
-    return (
-        <ul className="bg-base-200">
-            <li className="bg-base-200 px-8 py-4">
-                Chapter 1: Chapter Title Here
+import Link from "next/link";
+
+const ChaptersTable = ({ chaptersList }) => {
+    const chaptersListElements = chaptersList.map((ch) => {
+        return (
+            <li key={ch.number} className="bg-base-200 px-8 py-4">
+                <Link href={`/books/${ch.bookId}/${ch.number}`}>
+                    Chapter {ch.number}: {ch.title}
+                </Link>
             </li>
-            <li className="bg-base-200 px-8 py-4">
-                Chapter 2: Chapter Title Here
-            </li>
-            <li className="bg-base-200 px-8 py-4">
-                Chapter 3: Chapter Title Here
-            </li>
-        </ul>
-    );
+        );
+    });
+    return <ul className="bg-base-200">{chaptersListElements}</ul>;
 };
 
 export default ChaptersTable;

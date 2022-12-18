@@ -25,7 +25,7 @@ module.exports = [
         id: "3",
         title: "Chainsaw Man",
         author: "Tatsuki Fujimoto",
-        genres: ["Makima", "Makima", "Woof"],
+        genres: ["Makima", "Yes", "Woof"],
         img: {
             url: "/test_img0.webp",
         },
