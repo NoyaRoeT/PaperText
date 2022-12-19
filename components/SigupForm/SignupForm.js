@@ -1,6 +1,48 @@
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRef } from "react";
+import signUpWithEmail from "../../helpers/auth/signUpWithEmail";
+
 const SignupForm = () => {
+    const supabase = useSupabaseClient();
+
+    const emailRef = useRef(null);
+    const confirmPasswordRef = useRef(null);
+    const passwordRef = useRef(null);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const [email, password, confirmPassword] = [
+            emailRef.current.value,
+            passwordRef.current.value,
+            confirmPasswordRef.current.value,
+        ];
+
+        if (email.length < 1) {
+            // return validation
+            return;
+        }
+
+        if (password.length < 1) {
+            // return validation
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            // return validation
+            return;
+        }
+
+        try {
+            const data = await signUpWithEmail(supabase, email, password);
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
                 <div className="flex flex-col items-center mx-auto my-40">
                     <label className="text-3xl text-white mb-4">Sign Up</label>
@@ -9,21 +51,19 @@ const SignupForm = () => {
                             type="email"
                             placeholder="Email"
                             className="input w-full border-gray-100"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            className="input w-full border-gray-100"
+                            ref={emailRef}
                         />
                         <input
                             type="password"
                             placeholder="Password"
                             className="input w-full border-gray-100"
+                            ref={passwordRef}
                         />
                         <input
                             type="password"
-                            placeholder="Confirm Passwrod"
+                            placeholder="Confirm Password"
                             className="input w-full border-gray-100"
+                            ref={confirmPasswordRef}
                         />
 
                         <button className="btn" type="submit">

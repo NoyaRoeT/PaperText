@@ -2,6 +2,7 @@ import signInWithEmail from "../../helpers/auth/signInWithEmail";
 
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRef } from "react";
+import { useRouter } from "next/router";
 
 const LoginForm = () => {
     const supabase = useSupabaseClient();
@@ -9,15 +10,17 @@ const LoginForm = () => {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
 
+    const router = useRouter();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (emailRef.length < 1) {
+        if (emailRef.current.value.length < 1) {
             // return validation
             return;
         }
 
-        if (passwordRef.length < 1) {
+        if (passwordRef.current.value.length < 1) {
             // return validation
             return;
         }
@@ -30,6 +33,11 @@ const LoginForm = () => {
             );
 
             console.log(data);
+
+            if (data) {
+                // todo: redirect to user profile setup / user profile page
+                router.push("/author/books");
+            }
         } catch (err) {
             console.log(err);
         }
