@@ -1,5 +1,5 @@
 import Head from "next/head";
-import SignupForm from "../components/SigupForm/SignupForm";
+import SignupForm from "../components/SignupForm/SignupForm";
 
 export default function Signup() {
     return (
