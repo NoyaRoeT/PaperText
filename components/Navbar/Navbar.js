@@ -1,9 +1,29 @@
 import Link from "next/link";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import signOut from "../../helpers/auth/signOut";
+import { useState, useEffect } from "react";
 const NavBar = () => {
-    const session = useSession();
+    const user = useUser();
     const supabase = useSupabaseClient();
+    const [username, setUsername] = useState();
+
+    useEffect(() => {
+        const loadUsername = async () => {
+            const { data, error } = await supabase
+                .from("profiles")
+                .select("username")
+                .single();
+
+            if (error) {
+                throw error;
+            }
+
+            setUsername(data.username);
+        };
+        if (user) {
+            loadUsername();
+        }
+    }, [user]);
 
     const handleSignOut = async (event) => {
         event.preventDefault();
@@ -31,7 +51,7 @@ const NavBar = () => {
                     className="input w-full max-w-xs"
                 />
             </div>
-            {!session && (
+            {!user && (
                 <div className="flex space-x-4">
                     <Link href="/login">
                         <button className="btn">Login</button>
@@ -41,14 +61,9 @@ const NavBar = () => {
                     </Link>
                 </div>
             )}
-            {session && (
+            {user && (
                 <div className="flex space-x-4">
-                    <button className="btn">
-                        {session.user.email.substring(
-                            0,
-                            session.user.email.indexOf("@")
-                        )}
-                    </button>
+                    <button className="btn">{username}</button>
                     <button onClick={handleSignOut} className="btn">
                         Sign Out
                     </button>

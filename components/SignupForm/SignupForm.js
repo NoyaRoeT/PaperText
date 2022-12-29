@@ -6,19 +6,26 @@ const SignupForm = () => {
     const supabase = useSupabaseClient();
 
     const emailRef = useRef(null);
+    const usernameRef = useRef(null);
     const confirmPasswordRef = useRef(null);
     const passwordRef = useRef(null);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const [email, password, confirmPassword] = [
+        const [email, username, password, confirmPassword] = [
             emailRef.current.value,
+            usernameRef.current.value,
             passwordRef.current.value,
             confirmPasswordRef.current.value,
         ];
 
         if (email.length < 1) {
+            // return validation
+            return;
+        }
+
+        if (username.length < 1) {
             // return validation
             return;
         }
@@ -34,7 +41,12 @@ const SignupForm = () => {
         }
 
         try {
-            const data = await signUpWithEmail(supabase, email, password);
+            const data = await signUpWithEmail(
+                supabase,
+                email,
+                username,
+                password
+            );
             console.log(data);
         } catch (err) {
             console.log(err);
@@ -52,6 +64,12 @@ const SignupForm = () => {
                             placeholder="Email"
                             className="input w-full border-gray-100"
                             ref={emailRef}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            className="input w-full border-gray-100"
+                            ref={usernameRef}
                         />
                         <input
                             type="password"
