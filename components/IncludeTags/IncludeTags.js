@@ -1,5 +1,11 @@
 import { useState } from "react";
 
+/**
+ *
+ * @param {Object} props
+ * @param {Number} props.maxNumChoices
+ * @param {Array} props.tagsList
+ */
 const IncludeTags = (props) => {
     const [chosenTags, setChosenTags] = useState([]);
     const [enteredTag, setEnteredTag] = useState("");
@@ -26,34 +32,37 @@ const IncludeTags = (props) => {
     };
 
     return (
-        <div className={`inline-block ${props.className}`}>
-            <ul className="flex space-x-1">
-                {chosenTags.map((t) => (
-                    <li
-                        key={t}
-                        className="bg-gray-200 rounded text-black px-[3px]"
-                    >
-                        {t}
-                        <i className="">&#215;</i>
-                    </li>
-                ))}
-
-                <input
-                    className="break-normal focus:outline-none bg-base-100"
-                    type="text"
-                    autoComplete="off"
-                    onChange={handleTagsChange}
-                    onKeyDown={handleTagsKeyDown}
-                    value={enteredTag}
-                />
-            </ul>
-            <ul className="text-center bg-base-200">
-                {props.tagsList.map((t) => (
-                    <li key={t} className="border-b-white border-b-[1px] py-1">
-                        {t}
-                    </li>
-                ))}
-            </ul>
+        <div className="flex flex-col">
+            <label htmlFor={props.label}>{props.label}</label>
+            <div className={`${props.className}`}>
+                <ul className="flex space-x-1">
+                    {chosenTags.map((t) => (
+                        <li
+                            key={t}
+                            className="bg-gray-200 rounded text-black px-[3px]"
+                        >
+                            {t}
+                            <i className="">&#215;</i>
+                        </li>
+                    ))}
+                    <input
+                        id={props.label}
+                        className="break-normal focus:outline-none"
+                        type="text"
+                        autoComplete="off"
+                        onChange={handleTagsChange}
+                        onKeyDown={handleTagsKeyDown}
+                        value={enteredTag}
+                    />
+                </ul>
+                <ul className="text-center bg-base-200">
+                    {props.tagsList.map((t) => (
+                        <li key={t} className="bg-base-100 py-1">
+                            {t}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
