@@ -5,20 +5,20 @@ import { useState, useEffect } from "react";
 const NavBar = () => {
     const user = useUser();
     const supabase = useSupabaseClient();
-    const [username, setUsername] = useState();
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
         const loadUsername = async () => {
             const { data, error } = await supabase
                 .from("profiles")
                 .select("username")
-                .single();
+                .eq("email", user.email);
 
             if (error) {
                 throw error;
             }
 
-            setUsername(data.username);
+            setUsername(data[0].username);
         };
         if (user) {
             loadUsername();
