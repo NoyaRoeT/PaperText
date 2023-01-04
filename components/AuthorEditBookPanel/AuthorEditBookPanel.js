@@ -5,7 +5,7 @@ import { useState } from "react";
 const DUMMY_TAGS = ["tag 1", "tag 2"];
 const DUMMY_GENRES = ["genre 1", "genre 2"];
 
-const AuthorEditBookPanel = (props) => {
+const AuthorEditBookPanel = () => {
     const [clientImageUrl, setClientImageUrl] = useState();
     const uploadImageToClient = (event) => {
         if (event.target.files && event.target.files[0]) {
