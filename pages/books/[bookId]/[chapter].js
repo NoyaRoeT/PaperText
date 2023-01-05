@@ -1,4 +1,6 @@
-const Chapter = () => {
+import supabase from "../../../helpers/supabase";
+
+const Chapter = ({ chapterBody }) => {
     return (
         <div className="flex flex-col mt-8 max-w-screen-xl mx-auto bg-base-300 p-10">
             <div className="flex w-full justify-between">
@@ -16,6 +18,7 @@ const Chapter = () => {
             </div>
             <div className="p-10 space-y-10">
                 <h2 className="card-title">Test Chapter Title</h2>
+                <p>{chapterBody}</p>
             </div>
             <div className="flex w-full justify-between">
                 <button className="btn btn-primary">{"<"}</button>
@@ -35,3 +38,16 @@ const Chapter = () => {
 };
 
 export default Chapter;
+
+export const getServerSideProps = async (ctx) => {
+    const { bookId, chapter } = ctx.query;
+    const { data, error } = await supabase.storage
+        .from("chapters")
+        .download(`${bookId}/${chapter}.txt`);
+    const chapterBody = await data.text();
+    return {
+        props: {
+            chapterBody,
+        },
+    };
+};

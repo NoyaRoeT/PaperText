@@ -1,4 +1,4 @@
-import supabase from "../../helpers/supabaseClient";
+import supabase from "../../helpers/supabase";
 import Head from "next/head";
 import AdvancedSearch from "../../components/AdvancedSearch/AdvancedSearch";
 import BooksTable from "../../components/BooksTable/BooksTable";
