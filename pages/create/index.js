@@ -1,15 +1,15 @@
-const Author = () => {
+const Create = () => {
     return <></>;
 };
 
-export default Author;
+export default Create;
 
 export const getServerSideProps = async () => {
     return {
         props: {},
         redirect: {
             permenant: false,
-            destination: "/author/books",
+            destination: "/create/books",
         },
     };
 };

@@ -36,7 +36,7 @@ const LoginForm = () => {
 
             if (data) {
                 // todo: redirect to user profile setup / user profile page
-                router.push("/author/books");
+                router.push("/create/books");
             }
         } catch (err) {
             console.log(err);

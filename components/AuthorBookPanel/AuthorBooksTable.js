@@ -77,7 +77,7 @@ const AuthorBooksTable = () => {
                                 <td>{book.words}</td>
                                 <td>{book.views}</td>
                                 <th>
-                                    <Link href={`/author/books/${book.id}`}>
+                                    <Link href={`/create/books/${book.id}`}>
                                         <button className="btn btn-ghost btn-md">
                                             Details
                                         </button>

@@ -74,7 +74,7 @@ const AuthorChapterTable = () => {
                                 <td>{book.views}</td>
                                 <th>
                                     <Link
-                                        href={`/author/books/1/${book.number}`}
+                                        href={`/create/books/1/${book.number}`}
                                     >
                                         {" "}
                                         {/* todo: get current book id/slug */}
