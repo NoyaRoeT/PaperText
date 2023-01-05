@@ -40,7 +40,10 @@ const BooksInfo = ({ book }) => {
                     <ul className="flex space-x-4 items-center">
                         <li>Tags:</li>
                         {book.tags.map((t) => (
-                            <li className="rounded-md bg-zinc-900 py-1 px-2">
+                            <li
+                                key={t}
+                                className="rounded-md bg-zinc-900 py-1 px-2"
+                            >
                                 {t}
                             </li>
                         ))}

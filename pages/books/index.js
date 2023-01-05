@@ -17,7 +17,7 @@ export default function Browse(props) {
     );
 }
 
-export const getStaticProps = async (ctx) => {
+export const getStaticProps = async () => {
     const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
