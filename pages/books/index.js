@@ -1,9 +1,9 @@
+import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
 import AdvancedSearch from "../../components/AdvancedSearch/AdvancedSearch";
 import BooksTable from "../../components/BooksTable/BooksTable";
-import DUMMY_BOOKS from "../../dummy_data/dummy_books";
 
-export default function Browse() {
+export default function Browse(props) {
     return (
         <>
             <Head>
@@ -11,8 +11,23 @@ export default function Browse() {
             </Head>
             <main className="max-w-screen-xl mx-auto space-y-4 mt-10 mb-20">
                 <AdvancedSearch />
-                <BooksTable booksList={DUMMY_BOOKS}></BooksTable>
+                <BooksTable booksList={props.booksList}></BooksTable>
             </main>
         </>
     );
 }
+
+export const getStaticProps = async (ctx) => {
+    const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    );
+
+    const { data } = await supabase.rpc("get_all_books");
+    return {
+        props: {
+            booksList: data,
+        },
+        revalidate: 5,
+    };
+};

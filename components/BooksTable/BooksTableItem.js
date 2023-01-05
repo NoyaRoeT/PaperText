@@ -4,19 +4,22 @@ import Link from "next/link";
  *
  * @param {Object} prop
  * @param {Object} prop.book
- * @param {string} prop.book.id
+ * @param {number} prop.book.id
  * @param {string} prop.book.title
- * @param {string[]} prop.book.genres
- * @param {string} prop.book.imgUrl
+ * @param {string} prop.book.genre
+ * @param {string[]} prop.book.tags
+ * @param {string} prop.book.synopsis
+ * @param {string} prop.book.image_url
  */
 const BooksTableItem = ({ book }) => {
     return (
         <div className="flex space-x-4 bg-base-200 p-4 rounded-md">
             <Image
-                src={book.img.url}
+                unoptimized
+                src={book.image_url}
                 width={150}
                 height={100}
-                alt={book.img.alt || `${book.title}'s image`}
+                alt={`${book.title}'s image`}
                 className="rounded-md"
             ></Image>
             <div className="flex flex-col content-between">
@@ -26,13 +29,9 @@ const BooksTableItem = ({ book }) => {
                 >
                     {book.title}
                 </Link>
-                <ul className="flex space-x-4">
-                    {book.genres.map((genre) => (
-                        <li key={genre} className="text-xs btn">
-                            {genre}
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    <button className="text-xs btn">{book.genre}</button>
+                </div>
                 <div>{book.synopsis}</div>
             </div>
         </div>
