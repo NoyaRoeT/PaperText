@@ -1,4 +1,5 @@
 import Head from "next/head";
+import getServerSideSession from "../../../../helpers/auth/getserverSideSession";
 import AuthorChapterPanel from "../../../../components/AuthorChapterPanel/AuthorChapterPanel";
 
 export default function AuthorBooks({ bookId }) {
@@ -12,7 +13,19 @@ export default function AuthorBooks({ bookId }) {
     );
 }
 
-export const getServerSideProps = (ctx) => {
+export const getServerSideProps = async (ctx) => {
+    const session = await getServerSideSession(ctx);
+
+    if (!session) {
+        return {
+            props: {},
+            redirect: {
+                permenant: false,
+                destination: "/",
+            },
+        };
+    }
+
     const { bookId } = ctx.query;
 
     return {
