@@ -41,7 +41,7 @@ export default Chapter;
 
 export const getServerSideProps = async (ctx) => {
     const { bookId, chapter } = ctx.query;
-    const { data, error } = await supabase.storage
+    const { data } = await supabase.storage
         .from("chapters")
         .download(`${bookId}/${chapter}.txt`);
     const chapterBody = await data.text();
