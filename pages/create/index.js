@@ -13,7 +13,7 @@ export const getServerSideProps = async (ctx) => {
         return {
             props: {},
             redirect: {
-                permenant: false,
+                permanent: false,
                 destination: "/",
             },
         };
@@ -22,7 +22,7 @@ export const getServerSideProps = async (ctx) => {
     return {
         props: {},
         redirect: {
-            permenant: false,
+            permanent: false,
             destination: "/create/books",
         },
     };
