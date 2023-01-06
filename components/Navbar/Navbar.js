@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import signOut from "../../helpers/auth/signOut";
 import { useState, useEffect } from "react";
+import DarkmodeButton from "../DarkmodeButton/DarkmodeButton";
 const NavBar = () => {
     const user = useUser();
     const supabase = useSupabaseClient();
@@ -33,14 +34,15 @@ const NavBar = () => {
             console.log(err);
         }
     };
+
     return (
         <div className="navbar bg-base-200 justify-between content-center">
             <div className="flex space-x-2">
                 <Link href="/" className="btn btn-ghost normal-case text-xl">
                     PaperText
                 </Link>
-                <Link href="/books" className="btn">
-                    Browse
+                <Link href="/books">
+                    <button className="btn btn-primary">Browse</button>
                 </Link>
                 <Link href={"/create/"} className="btn">
                     Create
@@ -54,24 +56,28 @@ const NavBar = () => {
                     className="input w-full max-w-xs"
                 />
             </div>
-            {!user && (
-                <div className="flex space-x-4">
-                    <Link href="/login">
-                        <button className="btn">Login</button>
-                    </Link>
-                    <Link href="/signup">
-                        <button className="btn">Sign Up</button>
-                    </Link>
-                </div>
-            )}
-            {user && (
-                <div className="flex space-x-4">
-                    <button className="btn">{username}</button>
-                    <button onClick={handleSignOut} className="btn">
-                        Sign Out
-                    </button>
-                </div>
-            )}
+
+            <div className="flex space-x-4">
+                <DarkmodeButton />
+                {!user && (
+                    <>
+                        <Link href="/login">
+                            <button className="btn">Login</button>
+                        </Link>
+                        <Link href="/signup">
+                            <button className="btn">Sign Up</button>
+                        </Link>
+                    </>
+                )}
+                {user && (
+                    <>
+                        <button className="btn">{username}</button>
+                        <button onClick={handleSignOut} className="btn">
+                            Sign Out
+                        </button>
+                    </>
+                )}
+            </div>
         </div>
     );
 };
