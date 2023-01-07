@@ -16,15 +16,12 @@ const Sidebar = ({ children }) => {
 
     return (
         <>
-            <div
-                className={
-                    showSidebar
-                        ? "drawer drawer-mobile h-full"
-                        : "drawer h-full"
-                }
-            >
+            <div className={showSidebar ? "drawer drawer-mobile" : "drawer"}>
                 <input id="sidebar" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div
+                    id="main"
+                    className="drawer-content flex flex-col items-center "
+                >
                     {
                         // <label
                         //     htmlFor="sidebar"

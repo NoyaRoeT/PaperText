@@ -1,10 +1,13 @@
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
+
 const Layout = ({ children }) => {
     return (
         <>
-            <Navbar />
-            <Sidebar>{children}</Sidebar>
+            <Sidebar>
+                <Navbar />
+                {children}
+            </Sidebar>
         </>
     );
 };
