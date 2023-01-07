@@ -1,5 +1,5 @@
 import Head from "next/head";
-import getServerSideSession from "../../../helpers/auth/getserverSideSession";
+import getServerSideSession from "../../../helpers/auth/getServerSideSession";
 import AuthorBooksPanel from "../../../components/AuthorBookPanel/AuthorBookPanel";
 
 export default function AuthorBooksPage() {

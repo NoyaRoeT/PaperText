@@ -1,5 +1,5 @@
 import Head from "next/head";
-import getServerSideSession from "../../../../../helpers/auth/getserverSideSession";
+import getServerSideSession from "../../../../../helpers/auth/getServerSideSession";
 import AuthorEditChapterPanel from "../../../../../components/AuthorEditChapterPanel/AuthorEditChapterPanel";
 
 export default function AuthorEditChapter() {

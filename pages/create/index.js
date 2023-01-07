@@ -1,4 +1,4 @@
-import getServerSideSession from "../../helpers/auth/getserverSideSession";
+import getServerSideSession from "../../helpers/auth/getServerSideSession";
 
 const Create = () => {
     return <></>;
