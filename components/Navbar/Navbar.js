@@ -38,7 +38,7 @@ const NavBar = () => {
     return (
         <div className="navbar bg-base-100 justify-between content-center">
             <div className="flex space-x-2">
-                <Link href="/" className="btn btn-ghost normal-case text-xl">
+                <Link href="/" className="font-bold hover:text-primary normal-case text-xl">
                     PaperText
                 </Link>
                 <Link href="/books">
