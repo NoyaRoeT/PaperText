@@ -1,42 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AuthorBooksTable = () => {
-    const testData = [
-        {
-            title: "Test Book",
-            chapters: 333,
-            words: 91293,
-            views: 8111,
-            imgUrl: "/test_img0.webp",
-            id: 1,
-        },
-        {
-            title: "Fun story book",
-            chapters: 333,
-            words: 91293,
-            views: 8111,
-            imgUrl: "/test_img0.webp",
-            id: 1,
-        },
-        {
-            title: "Test Book",
-            chapters: 333,
-            words: 91293,
-            views: 8111,
-            imgUrl: "/test_img0.webp",
-            id: 1,
-        },
-        {
-            title: "Test Book",
-            chapters: 333,
-            words: 91293,
-            views: 8111,
-            imgUrl: "/test_img0.webp",
-            id: 1,
-        },
-    ];
-
+const AuthorBooksTable = (props) => {
     return (
         <div className="overflow-x-auto w-full">
             <button className="btn">Create</button>
@@ -50,16 +15,18 @@ const AuthorBooksTable = () => {
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {testData.map((book, i) => {
+                    {props.booksList.map((book) => {
                         return (
-                            <tr key={i}>
+                            <tr key={book.id}>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
                                                 <Image
-                                                    src={book.imgUrl}
+                                                    unoptimized
+                                                    src={book.image_url}
                                                     alt={book.title}
                                                     width="48"
                                                     height="48"
@@ -73,9 +40,9 @@ const AuthorBooksTable = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td>{book.chapters}</td>
-                                <td>{book.words}</td>
-                                <td>{book.views}</td>
+                                <td>{book.num_chapters}</td>
+                                <td>{book.num_words}</td>
+                                <td>999</td>
                                 <th>
                                     <Link href={`/create/books/${book.id}`}>
                                         <button className="btn btn-ghost btn-md">
