@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const Sidebar = (props) => {
+const Sidebar = ({ children }) => {
     const [showSidebar, setShowSidebar] = useState(true);
     const router = useRouter();
 
@@ -12,33 +12,25 @@ const Sidebar = (props) => {
         if (shouldHide) return setShowSidebar(false);
 
         setShowSidebar(true);
-        console.log(showSidebar);
     }, [currentRoute]);
 
     return (
         <>
-            <div className="drawer drawer-mobile">
-                <input
-                    id="my-drawer-2"
-                    type="checkbox"
-                    className="drawer-toggle"
-                />
+            <div className={showSidebar ? "drawer drawer-mobile" : "drawer"}>
+                <input id="sidebar" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
-                    {/*
-                        <label
-                            htmlFor="my-drawer-2"
-                            className="btn btn-primary drawer-button lg:hidden"
-                        >
-                            Open drawer
-                        </label>
-                        */}
-                    {props.children}
+                    {
+                        // <label
+                        //     htmlFor="sidebar"
+                        //     className="btn btn-primary drawer-button"
+                        // >
+                        //     Open drawer
+                        // </label>
+                    }
+                    {children}
                 </div>
                 <div className="drawer-side">
-                    <label
-                        htmlFor="my-drawer-2"
-                        className="drawer-overlay"
-                    ></label>
+                    <label htmlFor="sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li>
                             <a>Genres</a>
