@@ -32,7 +32,7 @@ export const getServerSideProps = async (ctx) => {
     const { data } = await supabase.rpc("get_author_books_panel_data", {
         user_id: user.id,
     });
-    console.log(data);
+
     return {
         props: {
             bookPanelData: data,
