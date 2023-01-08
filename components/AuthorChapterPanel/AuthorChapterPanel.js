@@ -1,9 +1,9 @@
 import AuthorChapterTable from "./AuthorChapterTable";
 
-const AuthorChapterPanel = () => {
+const AuthorChapterPanel = ({ bookId, chaptersList }) => {
     return (
         <div className="flex items-center max-w-screen-xl mx-auto my-40 bg-base-300 p-4 rounded-md">
-            <AuthorChapterTable />
+            <AuthorChapterTable bookId={bookId} chaptersList={chaptersList} />
         </div>
     );
 };

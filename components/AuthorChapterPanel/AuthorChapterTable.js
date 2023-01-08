@@ -1,39 +1,6 @@
 import Link from "next/link";
 
-const AuthorChapterTable = () => {
-    const testData = [
-        {
-            title: "Chapter 1",
-            number: 1,
-            words: 650,
-            views: 8111,
-        },
-        {
-            title: "Chapter 2",
-            number: 2,
-            words: 650,
-            views: 8111,
-        },
-        {
-            title: "Chapter 3",
-            number: 3,
-            words: 600,
-            views: 8111,
-        },
-        {
-            title: "Chapter 4",
-            number: 4,
-            words: 555,
-            views: 8111,
-        },
-        {
-            title: "Chapter 5",
-            number: 5,
-            words: 655,
-            views: 8111,
-        },
-    ];
-
+const AuthorChapterTable = ({ bookId, chaptersList }) => {
     return (
         <div className="overflow-x-auto w-full my-2">
             <div className="flex w-full justify-between">
@@ -57,24 +24,24 @@ const AuthorChapterTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {testData.map((book, i) => {
+                    {chaptersList.map((chapter) => {
                         return (
-                            <tr key={i}>
-                                <td>{book.number}</td>
+                            <tr key={chapter.number}>
+                                <td>{chapter.number}</td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div>
                                             <div className="font-bold">
-                                                {book.title}
+                                                {chapter.title}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>{book.words}</td>
-                                <td>{book.views}</td>
+                                <td>{chapter.num_words}</td>
+                                <td>{999}</td>
                                 <th>
                                     <Link
-                                        href={`/create/books/1/${book.number}`}
+                                        href={`/create/books/${bookId}/${chapter.number}`}
                                     >
                                         {" "}
                                         {/* todo: get current book id/slug */}
