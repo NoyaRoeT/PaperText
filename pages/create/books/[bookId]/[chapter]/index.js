@@ -1,14 +1,15 @@
 import Head from "next/head";
 import getServerSideSession from "../../../../../helpers/auth/getServerSideSession";
 import AuthorEditChapterPanel from "../../../../../components/AuthorEditChapterPanel/AuthorEditChapterPanel";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 
-export default function AuthorEditChapter() {
+export default function AuthorEditChapter({ chapter }) {
     return (
         <>
             <Head>
                 <title>PaperText | Chapter Number</title>
             </Head>
-            <AuthorEditChapterPanel />
+            <AuthorEditChapterPanel chapter={chapter} />
         </>
     );
 }
@@ -20,9 +21,30 @@ export const getServerSideProps = async (ctx) => {
         return {
             props: {},
             redirect: {
-                permenant: false,
+                permanent: false,
                 destination: "/",
             },
         };
     }
+
+    const { bookId, chapter } = ctx.query;
+    const supabase = createServerSupabaseClient(ctx);
+    const { data: chapterTitle } = await supabase.rpc("get_chapter_title", {
+        bk_id: bookId,
+        ch_num: chapter,
+    });
+
+    const { data } = await supabase.storage
+        .from("chapters")
+        .download(`${bookId}/${chapter}.txt`);
+    const chapterBody = await data.text();
+
+    return {
+        props: {
+            chapter: {
+                title: chapterTitle,
+                body: chapterBody,
+            },
+        },
+    };
 };

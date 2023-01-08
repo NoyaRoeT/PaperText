@@ -1,4 +1,4 @@
-const AuthorEditChapterPanel = () => {
+const AuthorEditChapterPanel = ({ chapter }) => {
     return (
         <div className="flex flex-col mx-auto px-6 py-6">
             <div className="flex items-center gap-3 mb-4">
@@ -12,12 +12,14 @@ const AuthorEditChapterPanel = () => {
                         type="text"
                         placeholder="Chapter Title"
                         className="input w-full"
+                        defaultValue={chapter.title}
                     />
                 </div>
                 <div className="relative flex flex-grow flex-col">
                     <textarea
                         className="textarea border-white"
                         placeholder="Chapter content"
+                        defaultValue={chapter.body}
                     ></textarea>
                 </div>
                 <div className="w-full flex justify-between">
