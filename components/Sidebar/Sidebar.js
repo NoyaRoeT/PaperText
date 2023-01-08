@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -35,6 +36,12 @@ const Sidebar = ({ children }) => {
                 <div className="drawer-side">
                     <label htmlFor="sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <Link
+                            href="/"
+                            className="font-bold hover:text-primary normal-case text-xl mx-auto"
+                        >
+                            PaperText
+                        </Link>
                         <li>
                             <a>Genres</a>
                             <a>Tags</a>
