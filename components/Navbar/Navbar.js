@@ -36,8 +36,8 @@ const NavBar = () => {
     };
 
     return (
-        <div className="navbar bg-base-100 justify-between content-center">
-            <div className="flex space-x-2">
+        <div className="navbar bg-base-100 content-center">
+            <div className="flex flex-1 gap-5 justify-center mr-auto">
                 <Link
                     href="/"
                     className="font-bold hover:text-primary normal-case text-xl"
@@ -51,7 +51,7 @@ const NavBar = () => {
                     Create
                 </Link>
             </div>
-            <div className="space-x-4">
+            <div className="mx-2">
                 <input
                     id="search"
                     type="text"
@@ -60,7 +60,7 @@ const NavBar = () => {
                 />
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex-1 flex gap-5 justify-center ml-auto">
                 <DarkmodeButton />
                 {!user && (
                     <>
