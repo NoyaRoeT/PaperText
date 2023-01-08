@@ -3,6 +3,7 @@ import signInWithEmail from "../../helpers/auth/signInWithEmail";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const LoginForm = () => {
     const supabase = useSupabaseClient();
@@ -47,7 +48,7 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit}>
             <div>
                 <div className="flex flex-col items-center mx-auto my-40">
-                    <label className="text-3xl text-white mb-4">Sign In</label>
+                    <label className="text-3xl mb-4">Login</label>
                     <div className="flex flex-col bg-base-200 rounded-md p-4 w-96 space-y-4">
                         <input
                             type="text"
@@ -68,9 +69,9 @@ const LoginForm = () => {
                     <div className="flex rounded-md p-2 mt-4 w-96 justify-center">
                         <label className="text-gray">
                             New to PaperText?{" "}
-                            <span className="text-green-500 cursor-pointer">
+                            <Link href="/signup" className="text-green-500 cursor-pointer">
                                 Create an account
-                            </span>
+                            </Link>
                         </label>
                     </div>
                 </div>
