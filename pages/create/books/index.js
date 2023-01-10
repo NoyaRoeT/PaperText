@@ -1,7 +1,6 @@
 import Head from "next/head";
 import getServerSideSession from "../../../helpers/auth/getServerSideSession";
 import AuthorBooksPanel from "../../../components/AuthorBookPanel/AuthorBookPanel";
-import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 
 export default function AuthorBooksPage(props) {
     return (
@@ -15,7 +14,7 @@ export default function AuthorBooksPage(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
-    const session = await getServerSideSession(ctx);
+    const { session, supabase } = await getServerSideSession(ctx);
 
     if (!session) {
         return {
@@ -26,12 +25,7 @@ export const getServerSideProps = async (ctx) => {
             },
         };
     }
-
-    const { user } = session;
-    const supabase = createServerSupabaseClient(ctx);
-    const { data } = await supabase.rpc("get_author_books_panel_data", {
-        user_id: user.id,
-    });
+    const { data } = await supabase.rpc("get_author_book_panel_data");
 
     return {
         props: {

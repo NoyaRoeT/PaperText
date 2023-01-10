@@ -7,7 +7,7 @@ const getServerSideSession = async (ctx) => {
         data: { session },
     } = await supabase.auth.getSession();
 
-    return session;
+    return { session, supabase };
 };
 
 export default getServerSideSession;

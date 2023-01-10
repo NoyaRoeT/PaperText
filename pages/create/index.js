@@ -7,7 +7,7 @@ const Create = () => {
 export default Create;
 
 export const getServerSideProps = async (ctx) => {
-    const session = await getServerSideSession(ctx);
+    const { session } = await getServerSideSession(ctx);
 
     if (!session) {
         return {

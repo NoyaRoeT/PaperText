@@ -15,7 +15,7 @@ export default function AuthorEditChapter({ chapter }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-    const session = await getServerSideSession(ctx);
+    const { session, supabase } = await getServerSideSession(ctx);
 
     if (!session) {
         return {
@@ -28,7 +28,6 @@ export const getServerSideProps = async (ctx) => {
     }
 
     const { bookId, chapter } = ctx.query;
-    const supabase = createServerSupabaseClient(ctx);
     const { data: chapterTitle } = await supabase.rpc("get_chapter_title", {
         bk_id: bookId,
         ch_num: chapter,
