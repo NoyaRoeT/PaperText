@@ -1,7 +1,6 @@
 import Head from "next/head";
 import getServerSideSession from "../../../../../helpers/auth/getServerSideSession";
 import AuthorEditChapterPanel from "../../../../../components/AuthorEditChapterPanel/AuthorEditChapterPanel";
-import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 
 export default function AuthorEditChapter({ chapter }) {
     return (
