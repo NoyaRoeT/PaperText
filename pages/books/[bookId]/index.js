@@ -44,6 +44,6 @@ export const getStaticProps = async ({ params }) => {
             bookInfo,
             chapters,
         },
-        revalidate: 21600,
+        revalidate: 60,
     };
 };
