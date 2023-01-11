@@ -18,18 +18,32 @@ const Book = ({ bookInfo, chapters }) => {
 
 export default Book;
 
-export const getServerSideProps = async (ctx) => {
-    const { bookId } = ctx.query;
+export const getStaticPaths = async () => {
+    const { data } = await supabase.rpc("get_all_books");
+
+    const paths = data.map((book) => ({
+        params: { bookId: book.id.toString() },
+    }));
+
+    return { paths, fallback: true };
+};
+
+export const getStaticProps = async ({ params }) => {
+    const { bookId } = params;
+
     const { data: bookInfo } = await supabase.rpc("get_book_info", {
         bk_id: bookId,
     });
+
     const { data: chapters } = await supabase.rpc("get_chapters_by_book_id", {
         bk_id: bookId,
     });
+
     return {
         props: {
             bookInfo,
             chapters,
         },
+        revalidate: 21600,
     };
 };
