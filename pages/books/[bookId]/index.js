@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
         params: { bookId: book.id.toString() },
     }));
 
-    return { paths, fallback: true };
+    return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }) => {
