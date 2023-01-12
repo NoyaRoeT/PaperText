@@ -19,6 +19,7 @@ export default function Browse(props) {
 
 export const getStaticProps = async () => {
     const res = await supabase.rpc("get_all_books");
+
     return {
         props: {
             booksList: res.data,

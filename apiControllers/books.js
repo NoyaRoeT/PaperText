@@ -23,6 +23,7 @@ export const handlePostBooks = async (req, res) => {
     const { error, status } = await supabase.rpc("create_book", body);
     if (!error) {
         res.status(201).send("Success!");
+        return;
     }
 
     res.status(status).json({ error, status });

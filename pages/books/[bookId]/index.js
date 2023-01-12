@@ -2,8 +2,13 @@ import BooksInfo from "../../../components/BooksInfo/BooksInfo";
 import Tabs from "../../../components/Tabs/Tabs";
 import ChaptersTable from "../../../components//ChaptersTable/ChaptersTable";
 import supabase from "../../../helpers/supabase";
+import { useRouter } from "next/router";
 
 const Book = ({ bookInfo, chapters }) => {
+    const router = useRouter();
+
+    if (router.isFallback) return null;
+
     const tabNameArray = ["About", "Table of Content"];
     return (
         <main className="max-w-screen-xl mx-auto space-y-4 mt-10 mb-20">
@@ -25,7 +30,7 @@ export const getStaticPaths = async () => {
         params: { bookId: book.id.toString() },
     }));
 
-    return { paths, fallback: false };
+    return { paths, fallback: true };
 };
 
 export const getStaticProps = async ({ params }) => {
