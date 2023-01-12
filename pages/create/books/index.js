@@ -1,14 +1,14 @@
 import Head from "next/head";
 import getServerSideSession from "../../../helpers/auth/getServerSideSession";
-import AuthorBooksPanel from "../../../components/AuthorBookPanel/AuthorBookPanel";
+import AuthorDashboard from "../../../components/AuthorDashboard/AuthorDashboard";
 
-export default function AuthorBooksPage(props) {
+export default function AuthorBooksPage({ bookPanelData }) {
     return (
         <>
             <Head>
                 <title>PaperText | Manage Books</title>
             </Head>
-            <AuthorBooksPanel booksList={props.bookPanelData} />
+            <AuthorDashboard bookPanelData={bookPanelData} />
         </>
     );
 }
