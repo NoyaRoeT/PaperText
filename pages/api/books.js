@@ -1,13 +1,13 @@
 import { handleGetBooks, handlePostBooks } from "../../apiControllers/books";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     const method = req.method;
     switch (method) {
         case "GET":
-            handleGetBooks(req, res);
+            await handleGetBooks(req, res);
             break;
         case "POST":
-            handlePostBooks(req, res);
+            await handlePostBooks(req, res);
             break;
         default:
             res.send("You received this");

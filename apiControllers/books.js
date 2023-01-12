@@ -16,5 +16,15 @@ export const handlePostBooks = async (req, res) => {
 
     if (!session) {
         res.status(401).json({ message: "Not logged in" });
+        return;
     }
+
+    const body = req.body;
+    const { error, status } = await supabase.rpc("create_book", body);
+    if (!error) {
+        res.status(201).send("Success!");
+    }
+
+    res.status(status).json({ error, status });
+    return;
 };

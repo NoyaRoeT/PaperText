@@ -4,7 +4,9 @@ import Link from "next/link";
 const AuthorBooksTable = (props) => {
     return (
         <div className="overflow-x-auto w-full">
-            <button className="btn">Create</button>
+            <Link href="/create/books/new" className="btn">
+                Create
+            </Link>
             <table className="table w-full mt-2">
                 <thead>
                     <tr>
