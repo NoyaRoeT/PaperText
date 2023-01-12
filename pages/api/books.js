@@ -2,7 +2,6 @@ import { handleGetBooks, handlePostBooks } from "../../apiControllers/books";
 
 export default function handler(req, res) {
     const method = req.method;
-    // wjeqlwejqlwejklqwej
     switch (method) {
         case "GET":
             handleGetBooks(req, res);
