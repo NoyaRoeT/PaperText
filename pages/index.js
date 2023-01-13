@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Carousel from "../components/Carousel/Carousel";
 import Tabs from "../components/Tabs/Tabs";
+import CardsCarousel from "../components/CardsCarousel/CardsCarousel";
 
 const tabNameArray = ["Most Popular", "Latest Updates"];
 
@@ -16,6 +17,7 @@ export default function Home() {
                     <div>Empty 1</div>
                     <div>Empty 2</div>
                 </Tabs>
+                <CardsCarousel/>
             </main>
         </>
     );
