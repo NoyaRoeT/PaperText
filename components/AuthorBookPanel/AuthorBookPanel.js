@@ -7,6 +7,7 @@ const AuthorBooksPanel = ({
     Decrement,
     currentBookIndex,
     totalBookNum,
+    rowLimit,
 }) => {
     const tableHeaders = ["Title", "Chapters", "Words", "Views", ""];
 
@@ -80,14 +81,14 @@ const AuthorBooksPanel = ({
                     <label className="w-full text-sm ml-1">
                         Showing{" "}
                         <span className="font-semibold">
-                            {currentBookIndex}
+                            {currentBookIndex + 1}
                         </span>{" "}
                         to{" "}
                         <span className="font-semibold">
-                            {currentBookIndex + 5 > totalBookNum
+                            {currentBookIndex + (rowLimit + 1) > totalBookNum
                                 ? currentBookIndex +
                                   (totalBookNum - currentBookIndex)
-                                : currentBookIndex + 5}
+                                : currentBookIndex + (rowLimit + 1)}
                         </span>{" "}
                         of <span className="font-semibold">{totalBookNum}</span>{" "}
                         results

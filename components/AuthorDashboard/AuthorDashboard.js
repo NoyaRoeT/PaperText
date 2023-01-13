@@ -1,13 +1,47 @@
 import AuthorBooksPanel from "../AuthorBookPanel/AuthorBookPanel";
 import StatCard from "./StatCard";
 
-const AuthorDashboard = ({
-    booksDisplay,
-    Increment,
-    Decrement,
-    currentBookIndex,
-    totalBookNum,
-}) => {
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useEffect, useState } from "react";
+import usePagination from "../../helpers/usePagination";
+
+const AuthorDashboard = () => {
+    const supabase = useSupabaseClient();
+
+    const [booksDisplay, setBooksDisplay] = useState([]);
+    const [totalBookNum, setTotalBookNum] = useState(0);
+
+    const rowLimit = 4;
+
+    const [currentBookIndex, Increment, Decrement] = usePagination(
+        totalBookNum,
+        rowLimit
+    );
+
+    useEffect(() => {
+        const getTotalBooks = async () => {
+            const { data } = await supabase.rpc("get_num_books_by_author");
+            setTotalBookNum(data);
+        };
+        getTotalBooks();
+    }, []);
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            const { data } = await supabase
+                .rpc("get_author_book_panel_data")
+                .order("created_at", { ascending: false })
+                .range(currentBookIndex, currentBookIndex + rowLimit);
+
+            setBooksDisplay(data);
+        };
+
+        fetchBooks();
+    }, [currentBookIndex]);
+
+    useEffect(() => {
+        Increment();
+    }, []);
     return (
         <div className="mt-8 mx-8">
             <h2 className="mb-2 text-xl font-medium">Overview</h2>
@@ -24,6 +58,7 @@ const AuthorDashboard = ({
                         Decrement,
                         currentBookIndex,
                         totalBookNum,
+                        rowLimit,
                     }}
                 />
             </div>

@@ -1,17 +1,18 @@
 import Image from "next/image";
+import { useRef } from "react";
 
+const CardsCarousel = () => {
+    const cardsRef = useRef();
 
-const CardsCarousel = () =>{
     const handleCarouselButton = (event) => {
         event.preventDefault();
         const btn = event.currentTarget;
-        const carouselElement = btn.parentElement.parentElement.lastChild;
+        const carouselElement = cardsRef.current;
         const width = carouselElement.clientWidth;
-        if (btn.id === 'next'){
-            carouselElement.scrollBy({left:width});
-        }
-        else {
-            carouselElement.scrollBy({left:-width});
+        if (btn.id === "next") {
+            carouselElement.scrollBy({ left: width });
+        } else {
+            carouselElement.scrollBy({ left: -width });
         }
     };
 
@@ -113,7 +114,7 @@ const CardsCarousel = () =>{
                             betrayal by the yakuza leads to Denji's brutal, untimely
                             death, crushing all hope of him ever achieving
                             happiness.",`,
-        },        
+        },
         {
             image: "/test_img0.webp",
             title: "Chainsaw Man",
@@ -128,40 +129,60 @@ const CardsCarousel = () =>{
                             death, crushing all hope of him ever achieving
                             happiness.",`,
         },
-        
     ];
-    
+
     return (
-        <div id ="cardContainer" className="relative">
+        <div id="cardContainer" className="relative">
             <div className="absolute transform z-10 left-0 top-1/3">
-                <button id="back" onClick={handleCarouselButton} className="btn btn-square rounded-l-sm"> ❮ </button>
+                <button
+                    id="back"
+                    onClick={handleCarouselButton}
+                    className="btn btn-square rounded-l-sm"
+                >
+                    {" "}
+                    ❮{" "}
+                </button>
             </div>
             <div className="absolute transform z-10 right-0 top-1/3">
-                <button id="next" onClick={handleCarouselButton} className="btn btn-square rounded-r-sm"> ❯ </button>
+                <button
+                    id="next"
+                    onClick={handleCarouselButton}
+                    className="btn btn-square rounded-r-sm"
+                >
+                    {" "}
+                    ❯{" "}
+                </button>
             </div>
-            
 
-            <div id = "cards" className="carousel bg-base-200 gap-2">
-                {dummyData.map((item, i)=> 
-                <div key ={i} className="card carousel-item bg-base-100 shadow-xl">
-                    <figure>
-                        <Image 
-                        className="transition duration-75 ease-linear hover:brightness-50"
-                        src={item.image}
-                        alt
-                        width={250}
-                        height={250}/>
-                    </figure>
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title hover:text-primary">{item.title}</h2>
+            <div
+                id="cards"
+                ref={cardsRef}
+                className="carousel bg-base-200 gap-2"
+            >
+                {dummyData.map((item, i) => (
+                    <div
+                        key={i}
+                        className="card carousel-item bg-base-100 shadow-xl"
+                    >
+                        <figure>
+                            <Image
+                                className="transition duration-75 ease-linear hover:brightness-50"
+                                src={item.image}
+                                alt
+                                width={250}
+                                height={250}
+                            />
+                        </figure>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title hover:text-primary">
+                                {item.title}
+                            </h2>
+                        </div>
                     </div>
-                </div>
-                )}
+                ))}
             </div>
         </div>
-        
-    )
-
-}
+    );
+};
 
 export default CardsCarousel;
