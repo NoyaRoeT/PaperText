@@ -21,7 +21,7 @@ const Sidebar = ({ children }) => {
                 <input id="sidebar" type="checkbox" className="drawer-toggle" />
                 <div
                     id="main"
-                    className="drawer-content flex flex-col items-center "
+                    className="drawer-content items-center scroll-smooth scroll-pt-4"
                 >
                     {
                         // <label
@@ -31,7 +31,7 @@ const Sidebar = ({ children }) => {
                         //     Open drawer
                         // </label>
                     }
-                    {children}
+                    <div className="flex flex-col">{children}</div>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="sidebar" className="drawer-overlay"></label>

@@ -10,6 +10,13 @@ export default function AuthorBooksPage() {
     const [booksDisplay, setBooksDisplay] = useState([]);
     const [totalBookNum, setTotalBookNum] = useState(0);
 
+    const rowLimit = 4;
+
+    const [currentBookIndex, Increment, Decrement] = usePagination(
+        totalBookNum,
+        rowLimit
+    );
+
     useEffect(() => {
         const getTotalBooks = async () => {
             const { data } = await supabase.rpc("get_num_books_by_author");
@@ -17,13 +24,6 @@ export default function AuthorBooksPage() {
         };
         getTotalBooks();
     }, []);
-
-    const rowLimit = 4;
-
-    const [currentBookIndex, Increment, Decrement] = usePagination(
-        totalBookNum,
-        rowLimit
-    );
 
     useEffect(() => {
         const fetchBooks = async () => {

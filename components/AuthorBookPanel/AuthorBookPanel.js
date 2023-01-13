@@ -11,8 +11,8 @@ const AuthorBooksPanel = ({
     const tableHeaders = ["Title", "Chapters", "Words", "Views", ""];
 
     return (
-        <div className="overflow-x-auto w-full">
-            <div className="rounded-md mt-4 bg-base-300 p-6">
+        <>
+            <div className="rounded-md mt-4 bg-base-300 p-6 flex flex-col">
                 <div className="flex flex-row justify-between items-center mb-2">
                     <h2 className="text-xl font-medium">Your Books</h2>
 
@@ -20,58 +20,62 @@ const AuthorBooksPanel = ({
                         Create
                     </Link>
                 </div>
-                <table className="table w-full">
-                    <thead className="">
-                        <tr>
-                            {tableHeaders.map((header, i) => {
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
+                        <thead className="">
+                            <tr>
+                                {tableHeaders.map((header, i) => {
+                                    return (
+                                        <th key={i} className="normal-case">
+                                            {header}
+                                        </th>
+                                    );
+                                })}
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {booksDisplay.map((book) => {
                                 return (
-                                    <th key={i} className="normal-case">
-                                        {header}
-                                    </th>
+                                    <tr key={book.id}>
+                                        <td>
+                                            <div className="flex items-center space-x-3">
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <Image
+                                                            unoptimized
+                                                            src={book.image_url}
+                                                            alt={book.title}
+                                                            width="48"
+                                                            height="48"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-semibold">
+                                                        {book.title}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{book.num_chapters}</td>
+                                        <td>{book.num_words}</td>
+                                        <td>999</td>
+                                        <th>
+                                            <Link
+                                                href={`/create/books/${book.id}`}
+                                            >
+                                                <button className="btn btn-ghost btn-md">
+                                                    Details
+                                                </button>
+                                            </Link>
+                                        </th>
+                                    </tr>
                                 );
                             })}
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {booksDisplay.map((book) => {
-                            return (
-                                <tr key={book.id}>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <Image
-                                                        unoptimized
-                                                        src={book.image_url}
-                                                        alt={book.title}
-                                                        width="48"
-                                                        height="48"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="font-semibold">
-                                                    {book.title}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{book.num_chapters}</td>
-                                    <td>{book.num_words}</td>
-                                    <td>999</td>
-                                    <th>
-                                        <Link href={`/create/books/${book.id}`}>
-                                            <button className="btn btn-ghost btn-md">
-                                                Details
-                                            </button>
-                                        </Link>
-                                    </th>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
                 <div className="flex items-center mt-4">
                     <label className="w-full text-sm ml-1">
                         Showing{" "}
@@ -106,7 +110,7 @@ const AuthorBooksPanel = ({
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
