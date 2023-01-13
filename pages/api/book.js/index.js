@@ -1,4 +1,4 @@
-import { handleGetBooks, handlePostBooks } from "../../apiControllers/books";
+import { handleGetBooks, handlePostBooks } from "../../../apiControllers/books";
 
 export default async function handler(req, res) {
     const method = req.method;
