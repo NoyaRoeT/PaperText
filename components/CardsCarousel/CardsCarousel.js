@@ -7,7 +7,7 @@ const CardsCarousel = () =>{
         const btn = event.currentTarget;
         const carouselElement = btn.parentElement.parentElement.lastChild;
         const width = carouselElement.clientWidth;
-        if (btn.textContent === 'NEXT'){
+        if (btn.id === 'next'){
             carouselElement.scrollBy({left:width});
         }
         else {
@@ -133,23 +133,27 @@ const CardsCarousel = () =>{
     
     return (
         <div id ="cardContainer" className="relative">
-            <div className="absolute flex justify-between transform z-10 left-0 right-0 top-1/3">
-                <button onClick={handleCarouselButton} className="btn btn-square">BACK</button>
-                <button onClick={handleCarouselButton} className="btn btn-square">NEXT</button>
+            <div className="absolute transform z-10 left-0 top-1/3">
+                <button id="back" onClick={handleCarouselButton} className="btn btn-square rounded-l-sm"> ❮ </button>
             </div>
+            <div className="absolute transform z-10 right-0 top-1/3">
+                <button id="next" onClick={handleCarouselButton} className="btn btn-square rounded-r-sm"> ❯ </button>
+            </div>
+            
 
-            <div id = "cards" className="carousel relative bg-base-200 gap-2">
+            <div id = "cards" className="carousel bg-base-200 gap-2">
                 {dummyData.map((item, i)=> 
                 <div key ={i} className="card carousel-item bg-base-100 shadow-xl">
                     <figure>
-                        <Image
+                        <Image 
+                        className="transition duration-75 ease-linear hover:brightness-50"
                         src={item.image}
                         alt
                         width={250}
                         height={250}/>
                     </figure>
                     <div className="card-body items-center text-center">
-                        <h2 className="card-title">{item.title}</h2>
+                        <h2 className="card-title hover:text-primary">{item.title}</h2>
                     </div>
                 </div>
                 )}
