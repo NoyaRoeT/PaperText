@@ -1,7 +1,13 @@
 import AuthorBooksPanel from "../AuthorBookPanel/AuthorBookPanel";
 import StatCard from "./StatCard";
 
-const AuthorDashboard = ({ bookPanelData }) => {
+const AuthorDashboard = ({
+    booksDisplay,
+    Increment,
+    Decrement,
+    currentBookIndex,
+    totalBookNum,
+}) => {
     return (
         <div className="mt-8">
             <h2 className="mb-2 text-xl font-medium">Overview</h2>
@@ -11,7 +17,15 @@ const AuthorDashboard = ({ bookPanelData }) => {
                 <StatCard title={"Views Today"} value={"52"} />
             </div>
             <div className="mt-8">
-                <AuthorBooksPanel booksList={bookPanelData} />
+                <AuthorBooksPanel
+                    {...{
+                        booksDisplay,
+                        Increment,
+                        Decrement,
+                        currentBookIndex,
+                        totalBookNum,
+                    }}
+                />
             </div>
         </div>
     );
