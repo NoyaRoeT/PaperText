@@ -5,20 +5,20 @@ import {
 	handleDeleteBookId,
 } from '../../../apiControllers/bookId.js';
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
 	const method = req.method;
 	switch (method) {
 		case 'GET':
-			handleGetBookId(req, res);
+			await handleGetBookId(req, res);
 			break;
 		case 'POST':
-			handlePostBookId(req, res);
+			await handlePostBookId(req, res);
 			break;
 		case 'PUT':
-			handlePutBookId(req, res);
+			await handlePutBookId(req, res);
 			break;
 		case 'DELETE':
-			handleDeleteBookId(req, res);
+			await handleDeleteBookId(req, res);
 			break;
 		default:
 			res.send('You received this');
