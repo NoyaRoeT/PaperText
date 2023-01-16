@@ -7,8 +7,11 @@ module.exports = {
 	theme: {
 		extend: {},
 		colors: {
+			primary: '#0471A6',
+			dark: '#02040F',
+			light: '#EDF5FC',
 			gray: {
-				50: 'f9f9fa',
+				50: '#f9f9fa',
 				100: '#eceeee',
 				200: '#dee1e2',
 				300: '#d0d3d5',
@@ -166,4 +169,37 @@ module.exports = {
 		},
 	},
 	plugins: [require('daisyui')],
+	daisyui: {
+		themes: [
+			{
+				light: {
+					...require('daisyui/src/colors/themes')[
+						'[data-theme=light]'
+					],
+					primary: '#2FF3E0',
+					'primary-content': '#02040F',
+					'primary-focus': '#957ad0',
+					'base-100': '#EDF5FC',
+					'base-200': '#f9f9fa',
+					'base-300': '#eceeee',
+					'base-content': '#02040F',
+				},
+			},
+			{
+				dark: {
+					...require('daisyui/src/colors/themes')[
+						'[data-theme=dark]'
+					],
+					primary: '#2FF3E0',
+					'primary-content': '#EDF5FC',
+					'primary-focus': '#29b399',
+					'base-100': '#191919',
+					'base-200': '#191919BF',
+					'base-300': '#1E1E1E',
+					'base-content': '#EDF5FC',
+					neutral: '#1E1E1E',
+				},
+			},
+		],
+	},
 };
