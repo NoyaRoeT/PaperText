@@ -1,5 +1,5 @@
-import AuthorEditBookPanel from "../../../components/AuthorEditBookPanel/AuthorEditBookPanel";
+import AuthorEditBookPanel from '../../../components/AuthorEditBookPanel/AuthorEditBookPanel';
 
 export default function AuthorAddBookPage() {
-    return <AuthorEditBookPanel />;
+	return <AuthorEditBookPanel />;
 }

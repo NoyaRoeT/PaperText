@@ -1,3 +1,3 @@
 export default function GenrePage() {
-    return <></>;
+	return <></>;
 }

@@ -1,14 +1,14 @@
 const signInWithEmail = async (supabase, email, password) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-    });
+	const { data, error } = await supabase.auth.signInWithPassword({
+		email: email,
+		password: password,
+	});
 
-    if (error) {
-        throw error;
-    }
+	if (error) {
+		throw error;
+	}
 
-    return data;
+	return data;
 };
 
 export default signInWithEmail;
