@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useRef } from 'react';
+// CardCarousel component
 
 const CardsCarousel = () => {
 	const cardsRef = useRef();
