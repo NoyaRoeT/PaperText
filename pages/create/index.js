@@ -1,29 +1,29 @@
-import getServerSideSession from "../../helpers/auth/getServerSideSession";
+import getServerSideSession from '../../helpers/auth/getServerSideSession';
 
 const Create = () => {
-    return <></>;
+	return <></>;
 };
 
 export default Create;
 
 export const getServerSideProps = async (ctx) => {
-    const { session } = await getServerSideSession(ctx);
+	const { session } = await getServerSideSession(ctx);
 
-    if (!session) {
-        return {
-            props: {},
-            redirect: {
-                permanent: false,
-                destination: "/",
-            },
-        };
-    }
+	if (!session) {
+		return {
+			props: {},
+			redirect: {
+				permanent: false,
+				destination: '/',
+			},
+		};
+	}
 
-    return {
-        props: {},
-        redirect: {
-            permanent: false,
-            destination: "/create/books",
-        },
-    };
+	return {
+		props: {},
+		redirect: {
+			permanent: false,
+			destination: '/create/books',
+		},
+	};
 };
