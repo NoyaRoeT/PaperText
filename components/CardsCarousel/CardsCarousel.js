@@ -133,21 +133,21 @@ const CardsCarousel = () => {
 
 	return (
 		<div id='cardContainer' className='relative'>
-			<div className='absolute transform z-10 left-0 top-1/3'>
+			<div className='absolute left-0 top-1/3 z-10 transform'>
 				<button
 					id='back'
 					onClick={handleCarouselButton}
-					className='btn btn-square rounded-l-sm'
+					className='btn-square btn rounded-l-sm'
 				>
 					{' '}
 					❮{' '}
 				</button>
 			</div>
-			<div className='absolute transform z-10 right-0 top-1/3'>
+			<div className='absolute right-0 top-1/3 z-10 transform'>
 				<button
 					id='next'
 					onClick={handleCarouselButton}
-					className='btn btn-square rounded-r-sm'
+					className='btn-square btn rounded-r-sm'
 				>
 					{' '}
 					❯{' '}
@@ -157,12 +157,12 @@ const CardsCarousel = () => {
 			<div
 				id='cards'
 				ref={cardsRef}
-				className='carousel bg-base-200 gap-2'
+				className='carousel gap-2 bg-base-200'
 			>
 				{dummyData.map((item, i) => (
 					<div
 						key={i}
-						className='card carousel-item bg-base-100 shadow-xl'
+						className='carousel-item card bg-base-100 shadow-xl'
 					>
 						<figure>
 							<Image

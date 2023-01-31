@@ -2,7 +2,7 @@ import AuthorChapterTable from './AuthorChapterTable';
 
 const AuthorChapterPanel = ({ bookId, chaptersList }) => {
 	return (
-		<div className='flex items-center max-w-screen-xl mx-auto my-40 bg-base-300 p-4 rounded-md'>
+		<div className='mx-auto my-40 flex max-w-screen-xl items-center rounded-md bg-base-300 p-4'>
 			<AuthorChapterTable bookId={bookId} chaptersList={chaptersList} />
 		</div>
 	);

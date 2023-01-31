@@ -11,7 +11,7 @@ export default function Home() {
 			<Head>
 				<title>PaperText | Web Novels</title>
 			</Head>
-			<main className='max-w-screen-xl mx-auto space-y-4 mt-10 mb-20'>
+			<main className='mx-auto mt-10 mb-20 max-w-screen-xl space-y-4'>
 				<Carousel />
 				<Tabs tabNames={tabNameArray}>
 					<div>Empty 1</div>

@@ -11,7 +11,7 @@ const Tabs = (props) => {
 	for (let i = 0; i != props.tabNames.length; ++i) {
 		tabs[i] = (
 			<button
-				className={`text-lg tab tab-lifted ${
+				className={`tab tab-lifted text-lg ${
 					activeTab == i && 'tab-active'
 				}`}
 				key={i}
@@ -25,7 +25,7 @@ const Tabs = (props) => {
 
 	return (
 		<div className={props.className}>
-			<div className='tabs text-xl mb-2'>{tabs}</div>
+			<div className='tabs mb-2 text-xl'>{tabs}</div>
 			{props.children[activeTab]}
 		</div>
 	);
