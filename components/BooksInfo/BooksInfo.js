@@ -26,7 +26,7 @@ const BooksInfo = ({ book }) => {
 			></Image>
 			<div className='card card-body bg-base-200'>
 				<div>
-					<h1 className='font-bold text-4xl'>{book.title}</h1>
+					<h1 className='text-4xl font-bold'>{book.title}</h1>
 				</div>
 
 				<div>Author: {book.author}</div>
@@ -37,12 +37,12 @@ const BooksInfo = ({ book }) => {
 				</div>
 
 				<div>
-					<ul className='flex space-x-4 items-center'>
+					<ul className='flex items-center space-x-4'>
 						<li>Tags:</li>
 						{book.tags.map((t) => (
 							<li
 								key={t}
-								className='rounded-md bg-zinc-900 py-1 px-2'
+								className='bg-zinc-900 rounded-md py-1 px-2'
 							>
 								{t}
 							</li>
@@ -51,8 +51,8 @@ const BooksInfo = ({ book }) => {
 				</div>
 
 				<div className='space-x-4'>
-					<button className='btn btn-primary'>Read</button>
-					<button className='btn btn-primary'>Add to library</button>
+					<button className='btn-primary btn'>Read</button>
+					<button className='btn-primary btn'>Add to library</button>
 				</div>
 			</div>
 		</div>

@@ -17,11 +17,11 @@ const Sidebar = ({ children }) => {
 
 	return (
 		<>
-			<div className={showSidebar ? 'drawer drawer-mobile' : 'drawer'}>
+			<div className={showSidebar ? 'drawer-mobile drawer' : 'drawer'}>
 				<input id='sidebar' type='checkbox' className='drawer-toggle' />
 				<div
 					id='main'
-					className='drawer-content items-center scroll-smooth scroll-pt-4'
+					className='drawer-content scroll-pt-4 items-center scroll-smooth'
 				>
 					{
 						// <label
@@ -35,10 +35,10 @@ const Sidebar = ({ children }) => {
 				</div>
 				<div className='drawer-side'>
 					<label htmlFor='sidebar' className='drawer-overlay'></label>
-					<ul className='menu p-4 w-80 bg-base-100 text-base-content'>
+					<ul className='menu w-80 bg-base-100 p-4 text-base-content'>
 						<Link
 							href='/'
-							className='font-bold hover:text-primary normal-case text-xl mx-auto'
+							className='mx-auto text-xl font-bold normal-case hover:text-primary'
 						>
 							PaperText
 						</Link>

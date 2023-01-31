@@ -39,7 +39,7 @@ const IncludeTags = (props) => {
 					{chosenTags.map((t) => (
 						<li
 							key={t}
-							className='bg-gray-200 rounded text-black px-[3px]'
+							className='text-black rounded bg-gray-200 px-[3px]'
 						>
 							{t}
 							<i className=''>&#215;</i>
@@ -55,7 +55,7 @@ const IncludeTags = (props) => {
 						value={enteredTag}
 					/>
 				</ul>
-				<ul className='text-center bg-base-200'>
+				<ul className='bg-base-200 text-center'>
 					{props.tagsList.map((t) => (
 						<li key={t} className='bg-base-100 py-1'>
 							{t}

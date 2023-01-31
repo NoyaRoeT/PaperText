@@ -57,9 +57,9 @@ const SignupForm = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<div className='flex flex-col items-center mx-auto my-40'>
-					<label className='text-3xl mb-4'>Sign Up</label>
-					<div className='flex flex-col bg-base-200 rounded-md p-4 w-96 space-y-4'>
+				<div className='mx-auto my-40 flex flex-col items-center'>
+					<label className='mb-4 text-3xl'>Sign Up</label>
+					<div className='flex w-96 flex-col space-y-4 rounded-md bg-base-200 p-4'>
 						<input
 							type='email'
 							placeholder='Email'
@@ -90,12 +90,12 @@ const SignupForm = () => {
 						</button>
 					</div>
 
-					<div className='flex rounded-md p-2 mt-4 w-96 justify-center'>
+					<div className='mt-4 flex w-96 justify-center rounded-md p-2'>
 						<label className='text-gray'>
 							Already have an account?{' '}
 							<Link
 								href='/login'
-								className='text-green-500 cursor-pointer'
+								className='cursor-pointer text-green-500'
 							>
 								Login
 							</Link>

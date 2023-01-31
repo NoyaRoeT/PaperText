@@ -1,8 +1,8 @@
 const AuthorEditChapterPanel = ({ chapter }) => {
 	return (
-		<div className='flex flex-col mx-auto px-6 py-6'>
-			<div className='flex items-center gap-3 mb-4'>
-				<h1 className='text-2xl text-scale-1200 text-white'>
+		<div className='mx-auto flex flex-col px-6 py-6'>
+			<div className='mb-4 flex items-center gap-3'>
+				<h1 className='text-scale-1200 text-white text-2xl'>
 					Edit Chapter
 				</h1>
 			</div>
@@ -17,12 +17,12 @@ const AuthorEditChapterPanel = ({ chapter }) => {
 				</div>
 				<div className='relative flex flex-grow flex-col'>
 					<textarea
-						className='textarea border-white'
+						className='border-white textarea'
 						placeholder='Chapter content'
 						defaultValue={chapter.body}
 					></textarea>
 				</div>
-				<div className='w-full flex justify-between'>
+				<div className='flex w-full justify-between'>
 					<button className='btn'>Edit</button>
 					<button className='btn'>Cancel</button>
 				</div>
