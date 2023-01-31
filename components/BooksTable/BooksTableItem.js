@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const BooksTableItem = ({ book }) => {
 	return (
-		<div className='flex space-x-4 bg-base-200 p-4 rounded-md'>
+		<div className='flex space-x-4 rounded-md bg-base-200 p-4'>
 			<Image
 				unoptimized
 				src={book.image_url}
@@ -25,12 +25,12 @@ const BooksTableItem = ({ book }) => {
 			<div className='flex flex-col content-between'>
 				<Link
 					href={`/books/${book.id}`}
-					className='text-xl link link-hover'
+					className='link-hover link text-xl'
 				>
 					{book.title}
 				</Link>
 				<div>
-					<button className='text-xs btn'>{book.genre}</button>
+					<button className='btn text-xs'>{book.genre}</button>
 				</div>
 				<div>{book.synopsis}</div>
 			</div>

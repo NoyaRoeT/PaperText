@@ -2,10 +2,10 @@ import supabase from '../../../helpers/supabase';
 
 const Chapter = ({ chapterBody }) => {
 	return (
-		<div className='flex flex-col mt-8 max-w-screen-xl mx-auto bg-base-300 p-10'>
+		<div className='mx-auto mt-8 flex max-w-screen-xl flex-col bg-base-300 p-10'>
 			<div className='flex w-full justify-between'>
-				<button className='btn btn-primary'>{'<'}</button>
-				<select className='select select-primary w-full max-w-xs'>
+				<button className='btn-primary btn'>{'<'}</button>
+				<select className='select-primary select w-full max-w-xs'>
 					<option disabled selected>
 						What is the best TV show?
 					</option>
@@ -14,15 +14,15 @@ const Chapter = ({ chapterBody }) => {
 					<option>Breaking Bad</option>
 					<option>Walking Dead</option>
 				</select>
-				<button className='btn btn-primary'>{'>'}</button>
+				<button className='btn-primary btn'>{'>'}</button>
 			</div>
-			<div className='p-10 space-y-10'>
+			<div className='space-y-10 p-10'>
 				<h2 className='card-title'>Test Chapter Title</h2>
 				<p>{chapterBody}</p>
 			</div>
 			<div className='flex w-full justify-between'>
-				<button className='btn btn-primary'>{'<'}</button>
-				<select className='select select-primary w-full max-w-xs'>
+				<button className='btn-primary btn'>{'<'}</button>
+				<select className='select-primary select w-full max-w-xs'>
 					<option disabled selected>
 						What is the best TV show?
 					</option>
@@ -31,7 +31,7 @@ const Chapter = ({ chapterBody }) => {
 					<option>Breaking Bad</option>
 					<option>Walking Dead</option>
 				</select>
-				<button className='btn btn-primary'>{'>'}</button>
+				<button className='btn-primary btn'>{'>'}</button>
 			</div>
 		</div>
 	);

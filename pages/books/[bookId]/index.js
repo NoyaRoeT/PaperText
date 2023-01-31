@@ -11,7 +11,7 @@ const Book = ({ bookInfo, chapters }) => {
 
 	const tabNameArray = ['About', 'Table of Content'];
 	return (
-		<main className='max-w-screen-xl mx-auto space-y-4 mt-10 mb-20'>
+		<main className='mx-auto mt-10 mb-20 max-w-screen-xl space-y-4'>
 			<BooksInfo book={bookInfo} />
 			<Tabs className='bg-base-200' tabNames={tabNameArray}>
 				<div className='p-10'>{bookInfo.synopsis}</div>

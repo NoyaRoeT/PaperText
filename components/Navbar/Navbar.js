@@ -36,16 +36,16 @@ const NavBar = () => {
 	};
 
 	return (
-		<div className='navbar bg-base-100 content-center'>
-			<div className='flex flex-1 gap-5 justify-center mr-auto'>
+		<div className='navbar content-center bg-base-100'>
+			<div className='mr-auto flex flex-1 justify-center gap-5'>
 				<Link
 					href='/'
-					className='font-bold hover:text-primary normal-case text-xl'
+					className='text-xl font-bold normal-case hover:text-primary'
 				>
 					PaperText
 				</Link>
 				<Link href='/books'>
-					<button className='btn btn-primary'>Browse</button>
+					<button className='btn-primary btn'>Browse</button>
 				</Link>
 				<Link href={'/create/'} className='btn'>
 					Create
@@ -60,7 +60,7 @@ const NavBar = () => {
 				/>
 			</div>
 
-			<div className='flex-1 flex gap-5 justify-center ml-auto'>
+			<div className='ml-auto flex flex-1 justify-center gap-5'>
 				<DarkmodeButton />
 				{!user && (
 					<>

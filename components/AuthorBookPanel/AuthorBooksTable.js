@@ -5,12 +5,12 @@ const AuthorBooksTable = (props) => {
 	const tableHeaders = ['Title', 'Chapters', 'Words', 'Views', ''];
 
 	return (
-		<div className='overflow-x-auto w-full'>
-			<div className='rounded-md mt-4 bg-base-300 p-6'>
-				<div className='flex flex-row justify-between items-center mb-2'>
+		<div className='w-full overflow-x-auto'>
+			<div className='mt-4 rounded-md bg-base-300 p-6'>
+				<div className='mb-2 flex flex-row items-center justify-between'>
 					<h2 className='text-xl font-medium'>Your Books</h2>
 
-					<Link href='/create/books/new' className='btn btn-sm'>
+					<Link href='/create/books/new' className='btn-sm btn'>
 						Create
 					</Link>
 				</div>
@@ -34,7 +34,7 @@ const AuthorBooksTable = (props) => {
 									<td>
 										<div className='flex items-center space-x-3'>
 											<div className='avatar'>
-												<div className='mask mask-squircle w-12 h-12'>
+												<div className='mask mask-squircle h-12 w-12'>
 													<Image
 														unoptimized
 														src={book.image_url}
@@ -56,7 +56,7 @@ const AuthorBooksTable = (props) => {
 									<td>999</td>
 									<th>
 										<Link href={`/create/books/${book.id}`}>
-											<button className='btn btn-ghost btn-md'>
+											<button className='btn-ghost btn-md btn'>
 												Details
 											</button>
 										</Link>
@@ -67,17 +67,17 @@ const AuthorBooksTable = (props) => {
 					</tbody>
 				</table>
 				<div className='flex items-center'>
-					<label className='w-full text-sm ml-1'>
+					<label className='ml-1 w-full text-sm'>
 						Showing <span className='font-semibold'>1</span> to{' '}
 						<span className='font-semibold'>1</span> of{' '}
 						<span className='font-semibold'>1</span> results
 					</label>
-					<div className='flex rounded-sm flex-row-reverse mt-2 right-0 ml-auto w-full'>
+					<div className='right-0 mt-2 ml-auto flex w-full flex-row-reverse rounded-sm'>
 						<div className='space-x-2'>
-							<button className='btn btn-sm btn-outline bg-base-200 border-gray-400 hover:bg-base-300 hover:text-base-content dark:border-gray-800 dark:hover:border-gray-700'>
+							<button className='btn-outline btn-sm btn border-gray-400 bg-base-200 hover:bg-base-300 hover:text-base-content dark:border-gray-800 dark:hover:border-gray-700'>
 								Previous page
 							</button>
-							<button className='btn btn-sm btn-outline bg-base-200 border-gray-400 hover:bg-base-300 hover:text-base-content dark:border-gray-800 dark:hover:border-gray-700'>
+							<button className='btn-outline btn-sm btn border-gray-400 bg-base-200 hover:bg-base-300 hover:text-base-content dark:border-gray-800 dark:hover:border-gray-700'>
 								Next
 							</button>
 						</div>

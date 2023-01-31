@@ -15,7 +15,7 @@ const AuthorEditBookPanel = () => {
 	};
 	console.log(clientImageUrl);
 	return (
-		<form className='flex flex-col bg-base-200 p-6 space-y-4 max-w-2xl mx-auto mt-20 rounded-md'>
+		<form className='mx-auto mt-20 flex max-w-2xl flex-col space-y-4 rounded-md bg-base-200 p-6'>
 			<div className='flex flex-col'>
 				<label htmlFor='image'>Image</label>
 				{clientImageUrl && (
@@ -40,7 +40,7 @@ const AuthorEditBookPanel = () => {
 			<IncludeTags label='Include Genres' tagsList={DUMMY_GENRES} />
 			<IncludeTags label='Include Tags' tagsList={DUMMY_TAGS} />
 
-			<button className='w-1/4 p-2 bg-base-100' type='button'>
+			<button className='w-1/4 bg-base-100 p-2' type='button'>
 				Submit
 			</button>
 		</form>

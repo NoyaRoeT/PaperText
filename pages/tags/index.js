@@ -6,7 +6,7 @@ export default function Tags() {
 			<Head>
 				<title>PaperText | Tags</title>
 			</Head>
-			<main className='max-w-screen-xl mx-auto space-y-4 mt-10 mb-20'></main>
+			<main className='mx-auto mt-10 mb-20 max-w-screen-xl space-y-4'></main>
 		</>
 	);
 }

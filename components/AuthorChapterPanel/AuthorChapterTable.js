@@ -2,18 +2,18 @@ import Link from 'next/link';
 
 const AuthorChapterTable = ({ bookId, chaptersList }) => {
 	return (
-		<div className='overflow-x-auto w-full my-2'>
+		<div className='my-2 w-full overflow-x-auto'>
 			<div className='flex w-full justify-between'>
 				<input
 					type='text'
 					placeholder='Search'
-					className='input input-bordered w-full max-w-xs'
+					className='input-bordered input w-full max-w-xs'
 				/>
 				<button type='button' className='btn'>
 					Create
 				</button>
 			</div>
-			<table className='table w-full mt-2'>
+			<table className='mt-2 table w-full'>
 				<thead>
 					<tr>
 						<th>Number</th>
@@ -45,7 +45,7 @@ const AuthorChapterTable = ({ bookId, chaptersList }) => {
 									>
 										{' '}
 										{/* todo: get current book id/slug */}
-										<button className='btn btn-ghost btn-md'>
+										<button className='btn-ghost btn-md btn'>
 											Edit
 										</button>
 									</Link>
